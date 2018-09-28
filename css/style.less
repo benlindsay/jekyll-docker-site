@@ -1,0 +1,478 @@
+---
+---
+
+@home-logo-size: 170px;
+@theme-color-1: rgb(96,125,139);
+@image-darkener: fade(#000000, 50%);
+@footer-logo-height: 45px;
+@margin-color: #ffffff;
+@content-background-color: #ffffff;
+@global-max-width: 1200px;
+@pi-img-max-size: 200px;
+@nav-line-height: 30px;
+
+@import "/css/bootstrap/bootstrap.less";
+// nav default is TOP nav
+// nav inverse is BOTTOM nav (i.e. footer)
+@navbar-default-bg: transparent;
+@navbar-inverse-bg: #494949;
+@navbar-default-link-color: #ffffff;
+@navbar-default-link-hover-color: #cccccc;
+@navbar-default-brand-hover-color: @navbar-default-link-hover-color;
+@navbar-default-link-active-color: @navbar-default-link-hover-color;
+@navbar-default-brand-active-color: @navbar-default-link-hover-color;
+@navbar-height: 40px;
+@navbar-margin-bottom: 0px;
+@line-height-base: 1.4;
+@font-size-base: 16px;
+@content-padding: 20px;
+@nav-pills-active-link-hover-bg: @navbar-default-bg;
+@nav-pills-active-link-hover-color: @gray;
+// @brand-primary: #DD2D2D;
+// @code-color: #586E75;
+// @pre-color: #586E75;
+// @well-bg: #f8f8f8;
+// @code-bg: #f8f8f8;
+// @pre-bg: #f8f8f8;
+
+@import "/css/font-awesome/font-awesome.less";
+@fa-font-path: "font";
+
+@import "/css/solarized.less";
+
+// General Font Stuff //
+
+html, body{
+    font-family: 'Raleway', serif;
+}
+
+h1, .h1 { font-size: floor(@font-size-base * 2.50); } /* ~34px */
+h2, .h2 { font-size: floor(@font-size-base * 2.15); } /* ~30px */
+h3, .h3 { font-size: ceil(@font-size-base * 1.70); }  /* ~24px */
+h4, .h4 { font-size: ceil(@font-size-base * 1.25); }  /* ~18px */
+h5, .h5 { font-size:  @font-size-base; }
+h6, .h6 { font-size: ceil(@font-size-base * 0.85); }  /* ~12px */
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, {
+    font-family: 'Raleway', sans-serif;
+}
+
+.smallhead {
+    font-size: floor(@font-size-base * 1.25)
+}
+
+.smallnote {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 16px;
+}
+
+.bigtitle {
+    font-size: 50px;
+}
+
+blockquote {
+    color: #666666;
+    p {
+        font-size: (@font-size-base * 1.00);
+    }
+}
+
+// General Spacing and Color Stuff //
+
+.container {
+    max-width: @global-max-width;
+}
+
+.container-fluid{
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+}
+
+#content-wrapper {
+    // background-color: @margin-color;
+    .container {
+        // background-color: @content-background-color;
+        padding-top: @content-padding;
+        padding-bottom: @content-padding;
+    }
+}
+
+h1 {
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+h2, h3, h4, h5, h6 {
+    margin: 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+hr {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    border-color: #bcbcbc;
+    width: 20%;
+}
+
+p + h2, p + h3, p + h4, p + h5, p + h6 {
+    margin-top: 20px; // Put space above header if it comes after a paragraph
+}
+
+.no-top-margin {
+    margin-top: 0px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-indent{
+    text-indent: 1em;
+}
+
+.hugespacer {
+    height: 50px;
+}
+
+.bigspacer {
+    height: 20px;
+}
+
+.spacer {
+    height: 10px;
+}
+
+.smallspacer {
+    height: 5px;
+}
+
+a.off {
+    color: inherit; // keeps links from being red
+}
+
+a.nounderline:link {
+    text-decoration: none;
+}
+
+.paperbox {
+    min-height: 120px;
+}
+
+// General Image Stuff //
+
+img {
+    .img-responsive;
+}
+
+img.offset {
+    float: right;
+    margin: 12px 0px 10px 15px;
+}
+
+.post img {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+.research-thumbnail {
+    height: 200px;
+    overflow: hidden;
+}
+
+.research-thumbnail img {
+    max-height: 100%;
+}
+
+.media .pull-left {
+    padding-right: 20px;
+}
+
+// Header and Footer Stuff //
+
+.navbar {
+    border: 0;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    height: auto;
+}
+
+.navbar-toggle{
+    margin-top: 0.6em;
+    margin-right: 2em;
+}
+
+.transparent-bkg {
+    background-color: transparent
+}
+
+.dark-bkg {
+    background-color: #494949;
+}
+
+.logo {
+    height: @nav-line-height;
+    padding: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.home-bkg {
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/home.jpg');
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.events-bkg {
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/events.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+
+.datathon-bkg {
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/project.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+
+.resources-bkg {
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/resources.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+
+.join-bkg {
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/join.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+
+.collaborate-bkg {
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/collaborate.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+
+.blog-bkg {
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/blog.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+
+.members-bkg {
+    background-repeat:no-repeat;
+    background-position:center -100px;
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/member3.jpg');
+    background-size: cover;
+}
+
+.contact-bkg {
+    background: linear-gradient( @image-darkener, @image-darkener ),
+    url('/images/contact.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+
+#header a {
+    line-height: @nav-line-height;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+.footernav {
+    display: inline-block;
+    float: none;
+}
+
+.footernav .fa {
+    padding-top: 5px;
+    transform: scale(0.85, 0.85);
+}
+
+.fa:hover,
+a > .img:hover {
+    cursor: pointer;
+}
+
+#cbe-text {
+    padding: 5px;
+}
+
+#footer i {
+    color: #999999;
+}
+
+#footer i:hover {
+    color: #666666;
+}
+
+#pennimg {
+    .center-block;
+    height: @footer-logo-height;;
+}
+
+#footer-logo {
+    height: @footer-logo-height;
+}
+
+// Home Page Stuff //
+
+#home-logo {
+    width: @home-logo-size;
+    height: @home-logo-size;
+    padding: 0px;
+    padding-right: 15px;
+}
+
+#home-title {
+    height: @home-logo-size;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: floor(@font-size-base * 2.50);
+}
+
+.color-band {
+    background-color: #383838;
+    background: -webkit-radial-gradient(#999999, #383838); // Safari 5.1 to 6.0
+    background: -o-radial-gradient(#999999, #383838); // For Opera 11.6 to 12.0
+    background: -moz-radial-gradient(#999999, #383838); // For Firefox 3.6 to 15
+    background: radial-gradient(#999999, #383838); // Standard syntax
+    color: white;
+    width: 100%;
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+}
+
+// Members Page Stuff //
+
+.member-img {
+    width: 100%;
+    // max-width: @pi-img-max-size;
+}
+
+// Join Page Stuff //
+
+#join-form-container {
+    height: 700px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+// Calendar stuff
+
+// Large screens
+#google-calendar-container {
+    height: 600px;
+}
+// Medium screens
+@media (min-width: 992px) and (max-width: 1199px){
+    #google-calendar-container {
+        height: 600px;
+    }
+}
+// Small screens
+@media (min-width: 768px) and (max-width: 991px){
+    #google-calendar-container {
+        height: 500px;
+    }
+}
+// Extra Small screens
+@media (max-width: 767px){
+    #google-calendar-container {
+        height: 400px;
+    }
+}
+
+// Some other stuff that might come in handy if we use these features //
+
+// pre {
+//     overflow-x: auto;
+// }
+
+// pre code {
+//     overflow-wrap: normal;
+//     white-space: pre;
+// }
+
+// table {
+//     .table;
+//     .table-striped;
+// }
+
+// Sponsors
+.sponsors img {
+  padding: 0.5em;
+  border-radius: 1em;
+  transition-duration: 0.25s;
+}
+.sponsors img:hover {
+  transform: scale(1.05, 1.05);
+  transition-duration: 0.25s;
+}
+
+
+// Main filler svg animation
+.svg-wrapper {
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+    transform: translateY(-50%);
+    width: 800;
+}
+.shape {
+    fill: transparent;
+    stroke-dasharray: 135 1000;
+    stroke-dashoffset: -780;
+    stroke-width: 8px;
+    stroke: #19f6e8;
+}
+.text {
+    color: #000000;
+    font-size: 35px;
+    line-height: 35px;
+    position: relative;
+}
+@keyframes draw {
+    0% {
+        stroke-dasharray: 135 1000;
+        stroke-dashoffset: -780;
+        stroke-width: 8px;
+    }
+    100% {
+        stroke-dasharray: 1160;
+        stroke-dashoffset: 0;
+        stroke-width: 2px;
+    }
+}
+.svg-wrapper:hover .shape {
+    -webkit-animation: 0.5s draw linear forwards;
+    animation: 0.5s draw linear forwards;
+}

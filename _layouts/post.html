@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<div class="container blog-post">
+  {% unless page.big_header %}
+  <div class="text-center">
+    <h1>{{ page.title }}</h1>
+  </div>
+  <hr>
+  {% endunless %}
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      {% if page.image %}
+      {% if page.link %}
+      <a href="{{ page.link }}">
+        <img class="offset" src="{{ page.image }}">
+      </a>
+      {% else %}
+      <img class="offset" src="{{ page.image }}">
+      {% endif %}
+      {% endif %}
+      {% assign linked = false %}
+      {% for member in site.categories.members %}
+        {% if page.author == member.title %}
+          {% capture mem_url %}{{ member.url }}{% endcapture %}
+          {% capture mem_image %}{{ member.image }}{% endcapture %}
+          {% assign linked = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      <div class="row">
+        {% if linked %}
+        <div class="col-md-12 text-center" >
+          <a class="off" href="{{ mem_url }}">
+            <img src="{{ mem_image }}" class="img-thumbnail" style="width: 150px;">
+          </a>
+        </div>
+        {% endif %}
+        <div class="col-md-12 text-center">
+          {% if linked %}<a class="off" href="{{ mem_url }}">{% endif %}
+            <h4>{{ page.author }}</h4>
+          {% if linked %}</a>{% endif %}
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="post">
+        {{ content }}
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <div class="bigspacer"></div>
+  <div class="spacer"></div>
+
+</div>

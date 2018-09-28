@@ -1,0 +1,81 @@
+  <div>
+    {% if page.big_header %}
+    <nav class="navbar navbar-default transparent-bkg" role="navigation">
+    {% else %}
+    <nav class="navbar navbar-default dark-bkg" role="navigation">
+    {% endif %}
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-element" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            PDSG
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-element">
+          <ul class="nav navbar-nav navbar-right">
+            {% if page.categories.first == 'events' %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/events/">Events</a>
+            </li>
+            {% if page.categories.first == 'gallery' %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/gallery/">Gallery</a>
+            </li>
+            {% if page.categories.first == 'resources' %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/resources/">Resources</a>
+            </li>
+            {% if page.categories.first == 'members' %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/members/">Members</a>
+            </li>
+            {% if page.categories.first == 'join' %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/join/">Join</a>
+            </li>
+            {% if page.categories.first == 'collaborate' %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/collaborate/">Collaborate</a>
+            </li>
+            {% if page.categories.first == 'blog' %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/blog/">Blog</a>
+            </li>
+            {% if page.categories.first == 'contact' %}
+            <li class="active">
+            {% else %}
+            <li>
+            {% endif %}
+              <a href="/contact/">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
